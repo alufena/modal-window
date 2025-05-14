@@ -31,3 +31,13 @@ for (let i = 0; i < btnsOpenModal.length; i++) {
 btnCloseModal.addEventListener('click', closeModal); // especialmente sem () pois quer iniciar somente ao clicar no botão
 
 overlay.addEventListener('click', closeModal);
+
+document.addEventListener('keydown', function (e) {
+    // console.log('test');
+    // console.log(e);
+    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        // console.log('test');
+        // if (!modal.classList.contains('hidden')) {
+        closeModal(); // dessa vez será preciso chamá-la
+    }
+});
