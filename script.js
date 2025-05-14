@@ -5,8 +5,29 @@ const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.close-modal');
 // const btnsOpenModal = document.querySelector('.show-modal'); // limitação do "querySelector": seletor com múltiplos elementos vai selecionar só o 1º elemento
 const btnsOpenModal = document.querySelectorAll('.show-modal'); // retorna NodeList com todos elementos
-console.log(btnsOpenModal);
+// console.log(btnsOpenModal);
+
+const closeModal = function () {
+    modal.classList.add('hidden');
+    overlay.classList.add('hidden');
+};
+
+const openModal = function () {
+    console.log('test');
+    modal.classList.remove('hidden');
+    overlay.classList.remove('hidden');
+};
 
 for (let i = 0; i < btnsOpenModal.length; i++) {
-    console.log(btnsOpenModal[i].textContent);
+    // console.log(btnsOpenModal[i].textContent);
+    btnsOpenModal[i].addEventListener('click', openModal);
 }
+
+// btnCloseModal.addEventListener('click', function () {
+//     modal.classList.add('hidden');
+//     overlay.classList.add('hidden');
+// });
+
+btnCloseModal.addEventListener('click', closeModal); // especialmente sem () pois quer iniciar somente ao clicar no botão
+
+overlay.addEventListener('click', closeModal);
